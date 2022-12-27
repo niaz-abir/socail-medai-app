@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import app from "../firebase/Firebase";
+import app from "../firebase/firebase";
 
 export const Authcontext = createContext();
 const auth = getAuth(app);

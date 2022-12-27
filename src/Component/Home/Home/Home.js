@@ -4,7 +4,7 @@ import Sectionsection from "../../Secondsection/Sectionsection";
 
 const Home = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2">
+    <div className="grid bg-black pt-8 grid-cols-1 lg:grid-cols-2">
       <Firstsection></Firstsection>
       <Sectionsection></Sectionsection>
     </div>

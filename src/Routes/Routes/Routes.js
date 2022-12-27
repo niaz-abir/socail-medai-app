@@ -16,7 +16,8 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: async () => fetch("http://localhost:5000/posts"),
+        loader: async () =>
+          fetch(" https://socail-app-server.vercel.app/posts"),
       },
       { path: "/home", element: <Home></Home> },
       { path: "/login", element: <Login></Login> },
@@ -26,12 +27,14 @@ export const routes = createBrowserRouter([
       {
         path: "/section",
         element: <Sectionsection></Sectionsection>,
-        loader: async () => fetch("http://localhost:5000/posts"),
+        loader: async () =>
+          fetch(" https://socail-app-server.vercel.app/posts"),
       },
       {
         path: "/media",
         element: <Media></Media>,
-        loader: async () => fetch("http://localhost:5000/posts"),
+        loader: async () =>
+          fetch(" https://socail-app-server.vercel.app/posts"),
       },
     ],
   },

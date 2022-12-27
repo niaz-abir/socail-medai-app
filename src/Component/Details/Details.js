@@ -7,14 +7,14 @@ const Details = () => {
   const [details, setdetails] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/detail/${postId}`)
+    fetch(` https://socail-app-server.vercel.app/detail/${postId}`)
       .then((res) => res.json())
       .then((data) => setdetails(data));
   }, []);
 
   return (
-    <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="bg-black pt-8 pb-96">
+      <div className="card w-3/4 text-white text-2xl shadow-xl">
         <div className="card-body">{details.textarea}</div>
       </div>
     </div>

@@ -1,6 +1,10 @@
 .love-react:hover {
-  color: palevioletred;
+  color: rgb(243, 80, 134);
+  transition: 0.4s;
+  transform: scale(1.2);
 }
 .like-react:hover {
-  color: steelblue;
+  color: rgb(88, 168, 235);
+  transition: 0.4s;
+  transform: scale(1.2);
 }

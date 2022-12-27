@@ -14,18 +14,18 @@ const Singlemedia = ({ single }) => {
   };
 
   return (
-    <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="pb-32">
+      <div className="card w-full mb-4 lg:w-3/4  shadow-md shadow-pink-400">
         <figure>
           <img src={single.img} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <p>{single.textarea}</p>
+          <p className="text-1xl text-white">{single.textarea}</p>
           <div className="card-actions justify-start">
             <button onClick={loveHandler}>
-              <BsSuitHeartFill></BsSuitHeartFill>
+              <BsSuitHeartFill className="love-react text-2xl text-white"></BsSuitHeartFill>
             </button>
-            <AiTwotoneLike></AiTwotoneLike>
+            <AiTwotoneLike className="like-react text-2xl text-white"></AiTwotoneLike>
           </div>
         </div>
       </div>
