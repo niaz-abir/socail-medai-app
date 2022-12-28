@@ -1,21 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Authcontext } from "../Context/Authprovider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { login } = useContext(Authcontext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [error, seterror] = useState("");
+  let from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
     login(email, password)
       .then((result) => {
         const user = result.user;
+        toast.success("create user succesfully");
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
+        seterror("password cannot matched");
       });
   };
   return (
@@ -24,6 +33,7 @@ const Login = () => {
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-3xl text-purple-600 font-bold">Login</h1>
+            <p className="text-pink-700">{error}</p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl  shadow-purple-500">
             <form onSubmit={handleLogin} className="card-body">

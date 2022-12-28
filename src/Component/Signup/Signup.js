@@ -1,9 +1,14 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { json } from "react-router-dom";
+// import { toast } from "react-hot-toast";
+import toast, { Toast } from "react-hot-toast";
+import { json, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../Context/Authprovider";
 
 const Signup = () => {
-  const { createuser } = useContext(Authcontext);
+  const { createuser, googleSignin } = useContext(Authcontext);
+  const googleprovider = new GoogleAuthProvider();
+  const navigate = useNavigate();
 
   const handlesignup = (event) => {
     event.preventDefault();
@@ -27,10 +32,20 @@ const Signup = () => {
             .then((response) => response.json())
             .then((data) => console.log(data))
             .catch((error) => console.log(error));
+          toast.success("create user succesfully");
+          navigate("/");
         }
         console.log(user);
       })
       .catch((error) => console.log(error));
+  };
+  const handleGoogle = () => {
+    googleSignin(googleprovider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div>
@@ -116,6 +131,11 @@ const Signup = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn all-btn">Signup</button>
+              </div>
+              <div className="form-control mt-6">
+                <button onClick={handleGoogle} className="btn all-btn">
+                  Google
+                </button>
               </div>
             </form>
           </div>

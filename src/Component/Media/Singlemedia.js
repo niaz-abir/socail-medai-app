@@ -17,7 +17,7 @@ const Singlemedia = ({ single }) => {
     <div className="pb-32">
       <div className="card w-full mb-4 lg:w-3/4  shadow-md shadow-pink-400">
         <figure>
-          <img src={single.img} alt="Shoes" />
+          <img src={single.img} alt="" />
         </figure>
         <div className="card-body">
           <p className="text-1xl text-white">{single.textarea}</p>
@@ -27,6 +27,11 @@ const Singlemedia = ({ single }) => {
             </button>
             <AiTwotoneLike className="like-react text-2xl text-white"></AiTwotoneLike>
           </div>
+          <input
+            type="text"
+            placeholder="Add your comment"
+            className="input   bg-pink-200 w-full max-w-xs"
+          />
         </div>
       </div>
     </div>

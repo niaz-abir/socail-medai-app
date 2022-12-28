@@ -9,6 +9,7 @@ import Message from "../../Component/Message/Message";
 import Sectionsection from "../../Component/Secondsection/Sectionsection";
 import Signup from "../../Component/Signup/Signup";
 import Main from "../../layout/Main";
+import Privateroute from "../Privateroute/Privateroute";
 
 export const routes = createBrowserRouter([
   {
@@ -26,7 +27,14 @@ export const routes = createBrowserRouter([
       { path: "/blog", element: <Blog></Blog> },
       { path: "/message", element: <Message></Message> },
       { path: "/about", element: <About></About> },
-      { path: "/detail/:id", element: <Details></Details> },
+      {
+        path: "/detail/:id",
+        element: (
+          <Privateroute>
+            <Details></Details>
+          </Privateroute>
+        ),
+      },
       {
         path: "/section",
         element: <Sectionsection></Sectionsection>,

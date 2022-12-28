@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
 } from "firebase/auth";
 import app from "../firebase/firebase";
 
@@ -22,6 +23,9 @@ const Authprovider = ({ children }) => {
     setloading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  const googleSignin = (provider) => {
+    return signInWithPopup(auth, provider);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       setuser(currentuser);
@@ -33,6 +37,7 @@ const Authprovider = ({ children }) => {
   const authinfo = {
     createuser,
     login,
+    googleSignin,
     user,
     loading,
   };

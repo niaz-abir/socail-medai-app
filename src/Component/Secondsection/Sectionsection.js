@@ -7,9 +7,9 @@ const Sectionsection = () => {
   console.log(section);
   return (
     <div>
-      <h1 className="text-3xl text-center mb-4 font-thin text-pink-700">
+      {/* <h1 className="text-3xl text-center mb-4 font-thin text-pink-700">
         All post
-      </h1>
+      </h1> */}
       <div>
         {section.map((singlesec) => (
           <Singlesection
