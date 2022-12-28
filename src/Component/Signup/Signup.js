@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { json } from "react-router-dom";
 import { Authcontext } from "../Context/Authprovider";
 
 const Signup = () => {
@@ -9,10 +10,24 @@ const Signup = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const university = form.university.value;
+    const address = form.address.value;
     const password = form.password.value;
     createuser(email, password)
       .then((result) => {
         const user = result.user;
+        if (user) {
+          fetch("http://localhost:5000/users/new", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ name, email, university, address }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error));
+        }
         console.log(user);
       })
       .catch((error) => console.log(error));
@@ -48,6 +63,32 @@ const Signup = () => {
                 <input
                   type="email"
                   name="email"
+                  placeholder="email"
+                  className="input bg-gray-400 input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-1xl text-purple-700 ">
+                    university
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  name="university"
+                  placeholder="email"
+                  className="input bg-gray-400 input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-1xl text-purple-700 ">
+                    address
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  name="address"
                   placeholder="email"
                   className="input bg-gray-400 input-bordered"
                 />

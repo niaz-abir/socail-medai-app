@@ -3,7 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <h1>footer</h1>
+      <footer className="footer footer-center p-4 bg-black text-pink-700 ">
+        <div>
+          <p>Copyright © 2022 - Frostlite social-app </p>
+        </div>
+      </footer>
     </div>
   );
 };

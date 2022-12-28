@@ -9,7 +9,7 @@ const Firstsection = () => {
     const textarea = form.textarea.value;
 
     const response = await fetch(
-      " https://socail-app-server.vercel.app/posts/new",
+      "https://socail-app-server.vercel.app/posts/new",
       {
         method: "POST",
         headers: {
@@ -39,7 +39,7 @@ const Firstsection = () => {
           />
           <br />
           <textarea
-            className="textarea mt-4 mb-2 w-80 h-56 bg-purple-300  textarea-secondary"
+            className="textarea mt-4 mb-2 w-80 h-56 bg-purple-00  textarea-secondary"
             placeholder="..."
             name="textarea"
           ></textarea>
