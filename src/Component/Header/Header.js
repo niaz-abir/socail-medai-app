@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GrUserWorker } from "react-icons/gr";
+import "./Header.css";
+import { Authcontext } from "../Context/Authprovider";
 const Header = () => {
+  const { user, logout } = useContext(Authcontext);
+  const handlelogout = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div className="navbar px-4 py-4 bg-black text-pink-700 flex justify-between">
@@ -25,19 +33,30 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52"
             >
               <li>
-                <Link to="/media">Media</Link>
+                <Link className="nav-link" to="/media">
+                  Media
+                </Link>
               </li>
               <li>
-                <Link to="/message">Message</Link>
+                <Link className="nav-link" to="/message">
+                  Message
+                </Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <button className="nav-link">Logout</button>
               </li>
             </ul>
           </div>
@@ -49,25 +68,33 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link className="text-1xl font-bold" to="/media">
+              <Link className="text-1xl nav-link font-bold" to="/media">
                 Media
               </Link>
             </li>
             <li>
-              <Link className="text-1xl font-bold" to="/message">
+              <Link className="text-1xl  nav-link font-bold" to="/message">
                 Message
               </Link>
             </li>
             <li>
-              <Link className="text-1xl font-bold" to="/about">
+              <Link className="text-1xl nav-link font-bold" to="/about">
                 About
               </Link>
             </li>
-            <li>
-              <Link className="text-1xl font-bold" to="/login">
-                Login
-              </Link>
-            </li>
+            {user ? (
+              <li>
+                <button onClick={handlelogout} className="nav-link">
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link className="text-1xl nav-link font-bold" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

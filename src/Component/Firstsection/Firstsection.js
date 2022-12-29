@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Firstsection.css";
 
-const Firstsection = () => {
+const Firstsection = ({ setcount }) => {
   const handlesubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,6 +20,7 @@ const Firstsection = () => {
     );
 
     const data = await response.json();
+    setcount((prev) => prev + 1);
     console.log(data);
   };
 

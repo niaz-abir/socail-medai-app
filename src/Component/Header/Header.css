@@ -1,0 +1,7 @@
+.nav-link:hover {
+  text-decoration: underline;
+
+  color: #f01a5e;
+  transition: 0.5;
+  transform: scale(1.2);
+}

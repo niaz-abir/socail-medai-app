@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import About from "../../Component/About/About";
 import Blog from "../../Component/Blog/Blog";
 import Details from "../../Component/Details/Details";
+import Edit from "../../Component/Edit/Edit";
 import Home from "../../Component/Home/Home/Home";
 import Login from "../../Component/Login/Login";
 import Media from "../../Component/Media/Media";
@@ -27,6 +28,8 @@ export const routes = createBrowserRouter([
       { path: "/blog", element: <Blog></Blog> },
       { path: "/message", element: <Message></Message> },
       { path: "/about", element: <About></About> },
+      { path: "/edit/:id", element: <Edit></Edit> },
+
       {
         path: "/detail/:id",
         element: (
